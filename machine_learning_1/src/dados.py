@@ -4,7 +4,7 @@ def carregar_acessos():
     X = []
     Y = []
 
-    arquivo = open('acesso_pagina.csv', 'r')
+    arquivo = open('acesso.csv', 'r')
     leitor = csv.reader(arquivo, delimiter=',')
     
     leitor.__next__()
@@ -15,6 +15,25 @@ def carregar_acessos():
          comprou) in leitor:
         
         X.append([int(home), int(como_funciona), int(contato)])
+        Y.append(int(comprou))
+    
+    return X, Y
+
+def carregar_buscas():
+    X = []
+    Y = []
+
+    arquivo = open('busca.csv', 'r')
+    leitor = csv.reader(arquivo, delimiter=',')
+    
+    leitor.__next__()
+
+    for (home,         
+         busca,
+         logado,
+         comprou) in leitor:
+        
+        X.append([int(home), busca, int(logado)])
         Y.append(int(comprou))
     
     return X, Y
